@@ -1,6 +1,6 @@
 #include <iostream>
 
-bool IsPalidrome(int input)
+bool IsPalidrome(const int& input)
 {
   int r = 0;
   int n = input;
