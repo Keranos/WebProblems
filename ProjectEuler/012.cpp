@@ -1,21 +1,51 @@
 #include <iostream>
-#include <math.h>
+#include <vector>
+#include <algorithm>
+
+#include "PrimeNumbers.h"
+
+int series_sum(const int& n){
+  return n * (n + 1) / 2;
+}
+
+int count_divisors(int n){
+  if(n % 2 == 0) n = n/2;
+  int divisors = 1;
+  int count = 0;
+
+  while(n % 2 == 0){
+    count++;
+    n /= 2;
+  }
+  
+  divisors *= (count + 1);
+  
+  int p = 3;
+  while(n != 1){
+    count = 0;
+    while(n % p == 0){
+      count++;
+      n /= p;
+    }
+    divisors *= (count + 1);
+    p += 2;
+  }
+  
+  return divisors;
+}
 
 int main(){
-  int divisors = 0;
-  unsigned long int n = 1;
-  unsigned long total;
+  int row = 1;
+  int sum, result;
 
-  while(divisors < 500){
-    divisors = 0;
-    n++;
-    total = n * (n + 1) / 2;
-    unsigned long int m = int (floor(sqrt(total)));
+  int lnum = count_divisors(row);
+  int rnum = count_divisors(row + 1);
 
-    for(unsigned long int i = 1; i <= m; ++i)
-      if(total % i == 0)
-	divisors += (i * i) == total ? 1 : 2;
+  while(lnum * rnum / 2 < 501){
+    row++;
+    lnum = rnum;
+    rnum = count_divisors(row + 1);
   }
 
-  std::cout << total << " " << divisors << std::endl;
+  std::cout << series_sum(row) << std::endl;
 }

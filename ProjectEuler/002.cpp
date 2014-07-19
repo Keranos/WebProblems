@@ -1,19 +1,18 @@
 #include <iostream>
 
 int main(){
-  unsigned long int total = 0;
-  unsigned long int term1 = 1;
-  unsigned long int term2 = 1;
-  unsigned long int temp;
+  long fib3 = 3;
+  long fib6 = 0;
+  long result = 2;
+  long summed = 0;
 
-  while(term2 < 4000000){
-    temp = term2;
-    term2 += term1;
-    term1 = temp;
+  while(result < 4000000){
+    summed += result;
     
-    if(term2 % 2 == 0)
-      total += term2;
+    result = 4*fib3 + fib6;
+    fib6 = fib3;
+    fib3 = result;
   }
 
-  std::cout << total << std::endl;
+  std::cout << result << std::endl;
 }
