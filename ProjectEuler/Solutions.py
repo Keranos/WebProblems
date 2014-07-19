@@ -1,5 +1,6 @@
 from MathFunctions import *
 from itertools import takewhile
+import Data
 
 def Solution1():
     return sum(x for x in xrange(1, 999) if x % 3 == 0 or x % 5 == 0)
@@ -27,7 +28,7 @@ def Solution7():
     return generate_prime(10001)
 
 def Solution8():
-    numbers = (int(c) for c in "".join(data8.strip().splitlines()))
+    numbers = (int(c) for c in "".join(Data.data8.strip().splitlines()))
     return max(product(nums) for nums in traverse(numbers, 13, 1))
 
 def Solution9():
@@ -36,6 +37,14 @@ def Solution9():
 
 def Solution10():
     return sum(get_primes(2000000))
+
+def Solution13():
+    total = sum(Data.data13)
+    n = num_length(total)
+    return total / 10**(n - 10)
+
+def Solution16():
+    return sum_digits(2**1000)
 
 def Solution48():
     return sum(x**x for x in range(1, 1001)) % 10000000000

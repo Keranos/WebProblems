@@ -1,6 +1,8 @@
 import operator
-from math import sqrt
+from math import sqrt, log10
 from fractions import gcd
+from itertools import tee, count, izip, takewhile, starmap
+from itertools import islice
 
 def is_prime(n):
     for i in range(2, int(sqrt(n))+1):
@@ -94,3 +96,11 @@ def sum_digits(n):
     while n:
         r, n = r + n % 10, n / 10
     return r
+
+def num_length(n):
+    if n > 0:
+        return int(log10(n)) + 1
+    elif n == 0:
+        return 1
+    else:
+        return int(log10(-n)) + 2
