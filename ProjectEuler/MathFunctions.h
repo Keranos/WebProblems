@@ -5,9 +5,10 @@
 
 unsigned long gcd(const unsigned long&, const unsigned long&);
 unsigned long lcm(const unsigned long&, const unsigned long&);
+unsigned long series_sum(const unsigned long&);
 
-bool isPrime(const int&);
-std::vector<int> getPrimes(const int&);
-std::vector<int> primeFactors(unsigned long long);
+bool is_prime(const int&);
+std::vector<int> get_primes(const int&);
+std::vector<int> prime_factors(unsigned long long);
 
 #endif

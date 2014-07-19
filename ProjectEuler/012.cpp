@@ -2,11 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-#include "PrimeNumbers.h"
-
-int series_sum(const int& n){
-  return n * (n + 1) / 2;
-}
+#include "MathFunctions.h"
 
 int count_divisors(int n){
   if(n % 2 == 0) n = n/2;
@@ -47,5 +43,5 @@ int main(){
     rnum = count_divisors(row + 1);
   }
 
-  std::cout << series_sum(row) << std::endl;
+  std::cout << seriesSum(row) << std::endl;
 }
