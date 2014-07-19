@@ -2,7 +2,7 @@ import operator
 from math import sqrt
 from fractions import gcd
 
-def isPrime(n):
+def is_prime(n):
     for i in range(2, int(sqrt(n))+1):
         if n % i == 0:
             return False            
@@ -28,7 +28,7 @@ def generate_prime(n):
     test_num = 1
     while n_primes < n:
         test_num += 2
-        if isPrime(test_num):
+        if is_prime(test_num):
             n_primes += 1
     return test_num
 
@@ -46,7 +46,7 @@ def nth_prime(n):
     test_num = 1
     while n_primes < n:
         test_num += 2
-        if isPrime(test_num):
+        if is_prime(test_num):
             n_primes += 1
     return test_num
 
