@@ -16,6 +16,14 @@ unsigned long series_sum(const unsigned long& n){
   return n * (n + 1) / 2;
 }
 
+std::vector<int> get_factors(const int& n){
+  std::vector<int> factors;
+  for(int i = 1; i < n; ++i)
+    if(n % i == 0)
+      factors.push_back(i);
+  return factors;
+}
+
 ///////////////////////////////
 // PRIME NUMBERS
 ///////////////////////////////

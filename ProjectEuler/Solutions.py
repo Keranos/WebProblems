@@ -1,50 +1,77 @@
 from MathFunctions import *
 from itertools import takewhile
+import datetime
 import Data
 
 def Solution1():
+    """Add all natural numbers below 1000 that are multiples of 3 or 5"""
     return sum(x for x in xrange(1, 999) if x % 3 == 0 or x % 5 == 0)
 
 def Solution2():
+    """Sum even Fibonacci numbers below 4 million"""
     evenFib = (x for x in fibonacci() if x % 2)
     return sum(takewhile(lambda x: x < 4e6, evenFib))
 
 def Solution3():
+    """Find largest prime factor of the number below"""
     return max(prime_factors(600851475143))
 
 def Solution4():
+    """Largest palindrome made from the product of two 3 digit numbers"""
     candidates = (x*y for x in xrange(110, 1000, 11) for y in xrange(x, 1000))
     return max(x for x in candidates if is_palindrome(x))
 
 def Solution5():
+    """LCM of the numbers 1-20"""
     return reduce(lcm, range(1, 21))
 
 def Solution6():
+    """Sum of squares minues the squares of sums"""
     sum_of_squares = sum(x*x for x in xrange(1, 101))
     square_of_sums = sum_series(100)**2;
     return square_of_sums - sum_of_squares
 
 def Solution7():
+    """The 10001st prime number"""
     return generate_prime(10001)
 
 def Solution8():
+    """Find the largest product of 13 adjacent digits in a 1000-digit number"""
     numbers = (int(c) for c in "".join(Data.data8.strip().splitlines()))
     return max(product(nums) for nums in traverse(numbers, 13, 1))
 
 def Solution9():
+    """Find the Pythagorean triplet for which a + b + c = 1000"""
     triplet = ((a, b, 1000-a-b) for a in xrange(1, 999) for b in xrange(a+1, 999))
     return first(a*b*c for (a, b, c) in triplet if a*a + b*b == c*c)
 
 def Solution10():
+    """Find the sum of all the primes below two million"""
     return sum(get_primes(2000000))
 
 def Solution13():
+    """First ten digits of the sum of fifty 100 digit numbers"""
     total = sum(Data.data13)
     n = num_length(total)
     return total / 10**(n - 10)
 
 def Solution16():
+    """Sum of the digits of 2**1000"""
     return sum_digits(2**1000)
 
+def Solution19():
+    """Number of Sundays from Jan 1, 1901 to Dec 31, 2000"""
+    sundays = 0
+    for y in xrange(1901, 2001):
+        for m in xrange(1, 13):
+            if datetime.datetime(y, m, 1).weekday() == 6:
+                sundays += 1
+    return sundays
+    
+def Solution20():
+    """Sum of the digits of 100!"""
+    return sum_digits(factorial(100))
+
 def Solution48():
+    """Sum of x**x from 1 to 1000"""
     return sum(x**x for x in range(1, 1001)) % 10000000000
