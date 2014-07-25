@@ -28,12 +28,27 @@ std::vector<int> get_factors(const int& n){
 // PRIME NUMBERS
 ///////////////////////////////
 bool is_prime(const int& n){
-  if(n == 1) return false;
+  if(n <= 1) return false;
   int limit = (int)sqrt(n);
   for(int i = 2; i < limit+1; ++i)
     if(n % i == 0)
       return false;
   return true;
+}
+
+std::vector<int> get_primes_below(const int& n){
+  std::vector<int> result;
+  if(n < 1) return result;
+  result.push_back(2);
+  
+  int i = 3; 
+  while(i <= n){
+    if(is_prime(i))
+      result.push_back(i);
+    i += 2;
+  }
+
+  return result;
 }
 
 std::vector<int> get_primes(const int& n){
@@ -42,7 +57,7 @@ std::vector<int> get_primes(const int& n){
   result.push_back(2);
 
   int i = 3;
-  while(result.size() != n){
+  while(result.size() < n){
     if(is_prime(i))
       result.push_back(i);
     i += 2;
