@@ -1,8 +1,30 @@
 #include <iostream>
 #include <math.h>
 #include <vector>
+#include <string>
 
 #include "MathFunctions.h"
+
+std::string convert_base(const unsigned int& n, const unsigned int& b){
+  int t = n;
+  std::string result;
+
+  while(t > 0){
+    result += t % b;
+    t /= b;
+  }
+
+  return result;
+}
+
+unsigned long concat(const unsigned int& a, const unsigned int& b){
+  unsigned long i = a, j = b;
+  while(j > 0){
+    i *= 10;
+    j /= 10;
+  }
+  return i + b;
+}
 
 unsigned long gcd(const unsigned long& a, const unsigned long& b){
   return b == 0 ? a : gcd(b, a % b);
@@ -10,6 +32,33 @@ unsigned long gcd(const unsigned long& a, const unsigned long& b){
 
 unsigned long lcm(const unsigned long& a, const unsigned long& b){
   return (a * b) / gcd(a, b);
+}
+
+bool is_pandigital(long n){
+  int digits = 0;
+  int count = 0;
+  int temp;
+  
+  while(n > 0){
+    temp = digits;
+    digits = digits | 1 << (int)((n % 10) - 1);
+    if(temp == digits) return false;
+    
+    count++;
+    n /= 10;
+  }
+  
+  return digits == (1 << count) - 1;
+}
+
+bool is_palindrome(const unsigned long& n){
+  unsigned long reversed = 0, orig = n;
+  while (orig > 0){
+    reversed = reversed * 10 + orig % 10;
+    orig /= 10;
+  }
+
+  return n == reversed;
 }
 
 unsigned long series_sum(const unsigned long& n){
@@ -64,6 +113,13 @@ std::vector<int> get_primes(const int& n){
   }
 
   return result;
+}
+
+unsigned long next_prime(const unsigned long& n){
+  int i = n;
+  while(true){
+    if(is_prime(++i)) return i;
+  }
 }
 
 std::vector<int> prime_factors(unsigned long long n){

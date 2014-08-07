@@ -4,13 +4,9 @@
 #include <algorithm>
 #include <numeric>
 
-#include "FileOperations.h"
+#include "TextOperations.h"
 
 // Read names from file and sum their letters and multiply by position.
-
-int sum_word(const std::string& word){
-  return std::accumulate(word.begin(), word.end(), 0, convert_ascii_to_int);
-}
 
 int total_word_position(const std::vector<std::string>& v){
   int counter = 1;
