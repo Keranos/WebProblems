@@ -61,6 +61,28 @@ bool is_palindrome(const unsigned long& n){
   return n == reversed;
 }
 
+bool same_digits(const int& m, const int& n){
+  int ints[10];
+  
+  int temp = n;
+  while(temp > 0){
+    ints[temp % 10]++;
+    temp /= 10;
+  }
+  
+  temp = m;
+  while(temp > 0){
+    ints[temp % 10]--;
+    temp /= 10;
+  }
+
+  for(int i = 0; i < 10; ++i)
+    if(ints[i] != 0)
+      return false;
+  
+  return true;
+}
+
 unsigned long series_sum(const unsigned long& n){
   return n * (n + 1) / 2;
 }
@@ -71,6 +93,11 @@ std::vector<int> get_factors(const int& n){
     if(n % i == 0)
       factors.push_back(i);
   return factors;
+}
+
+bool is_pentagonal(const unsigned long& n){
+  double p = (sqrt(1 + 24 * n) + 1.0) / 6.0;
+  return p == (int)p;
 }
 
 ///////////////////////////////

@@ -5,10 +5,7 @@
 #include <iostream>
 #include <cmath>
 
-bool is_pentagonal(int n){
-  double p = (sqrt(1 + 24 * n) + 1.0) / 6.0;
-  return p == (int)p;
-}
+#include "MathFunctions.h"
 
 int main(){
   int result = 0; 
