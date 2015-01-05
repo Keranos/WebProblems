@@ -1,47 +1,18 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <math.h>
 
 #include "MathFunctions.h"
 
-int count_divisors(int n){
-  if(n % 2 == 0) n = n/2;
-  int divisors = 1;
-  int count = 0;
-
-  while(n % 2 == 0){
-    count++;
-    n /= 2;
-  }
-  
-  divisors *= (count + 1);
-  
-  int p = 3;
-  while(n != 1){
-    count = 0;
-    while(n % p == 0){
-      count++;
-      n /= p;
-    }
-    divisors *= (count + 1);
-    p += 2;
-  }
-  
-  return divisors;
-}
-
 int main(){
-  int row = 1;
-  int sum, result;
+  int row = 0;
+  int i = 1;
 
-  int lnum = count_divisors(row);
-  int rnum = count_divisors(row + 1);
-
-  while(lnum * rnum / 2 < 501){
-    row++;
-    lnum = rnum;
-    rnum = count_divisors(row + 1);
+  while(number_factors(row) < 500){
+    row += i;
+    i++;
   }
-
-  std::cout << seriesSum(row) << std::endl;
+    
+  std::cout << row << std::endl;
 }

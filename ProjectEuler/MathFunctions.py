@@ -57,8 +57,8 @@ def ireduce(func, iterator, default=None):
         iterator = iter(iterator)
         curr = iterator.next()
     else:
-        curr = init
-        yield init
+        curr = default
+        yield default
     for x in iterator:
         curr = func(curr, x)
         yield curr

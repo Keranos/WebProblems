@@ -100,6 +100,20 @@ bool is_pentagonal(const unsigned long& n){
   return p == (int)p;
 }
 
+int number_factors(const unsigned long& n){
+  int count = 0;
+  int square = sqrt(n);
+  
+  for(int i = 1; i <= square; ++i)
+    if(n % i == 0)
+      count += 2;
+
+  if(square*square == n)
+    count--;
+  
+  return count;
+}
+
 ///////////////////////////////
 // PRIME NUMBERS
 ///////////////////////////////
