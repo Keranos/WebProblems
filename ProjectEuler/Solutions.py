@@ -75,3 +75,13 @@ def Solution20():
 def Solution48():
     """Sum of x**x from 1 to 1000"""
     return sum(x**x for x in range(1, 1001)) % 10000000000
+
+def Solution206():
+    """ Find the square with the property of 1_2_3_4_5_6_7_8_9_0"""
+    n = 138902663
+    while match_206(n*n): n -= 2
+    return n*10
+
+def match_206(n):
+    s = str(n)
+    return not all(int(s[x*2]) == x+1 for x in range(9))
