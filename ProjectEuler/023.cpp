@@ -18,7 +18,7 @@ std::vector<int> get_abundant_numbers(){
   std::vector<int> result;
   
   for(int i = 1; i < limit; ++i)
-    if(i < sum_factors(get_factors(i)))
+    if(i < sum_factors(get_proper_factors(i)))
       result.push_back(i);
   
   return result;

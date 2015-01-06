@@ -19,12 +19,12 @@ int main(){
   
   for(int i = 3; i < 10000; ++i){
     map::const_iterator iter = storage.find(i);
-    int a1 = iter == storage.end() ? sum_factors(get_factors(i)) : iter->second;
+    int a1 = iter == storage.end() ? sum_factors(get_proper_factors(i)) : iter->second;
      if(iter == storage.end())
       storage.insert( {i, a1} );
 
     iter = storage.find(a1);
-    int a2 = iter == storage.end() ? sum_factors(get_factors(a1)) : iter->second;
+    int a2 = iter == storage.end() ? sum_factors(get_proper_factors(a1)) : iter->second;
     if(iter == storage.end())
       storage.insert( {a1, a2} );
 

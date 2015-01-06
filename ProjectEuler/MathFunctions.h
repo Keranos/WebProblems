@@ -13,10 +13,13 @@ bool is_palindrome(const unsigned long&);
 bool is_pandigital(long);
 bool same_digits(const int&, const int&);
 unsigned long series_sum(const unsigned long&);
+std::vector<int> get_proper_factors(const int&);
 std::vector<int> get_factors(const int&);
 
 bool is_pentagonal(const unsigned long&);
 int number_factors(const unsigned long&);
+
+unsigned long choose(unsigned int, unsigned int);
 
 bool is_prime(const int&);
 std::vector<int> get_primes_below(const int&);

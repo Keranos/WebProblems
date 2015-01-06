@@ -62,7 +62,7 @@ bool is_palindrome(const unsigned long& n){
 }
 
 bool same_digits(const int& m, const int& n){
-  int ints[10];
+  int ints[10] = {};
   
   int temp = n;
   while(temp > 0){
@@ -87,9 +87,15 @@ unsigned long series_sum(const unsigned long& n){
   return n * (n + 1) / 2;
 }
 
+std::vector<int> get_proper_factors(const int& n){
+  std::vector<int> factors = get_factors(n);
+  factors.pop_back();
+  return factors;
+}
+
 std::vector<int> get_factors(const int& n){
   std::vector<int> factors;
-  for(int i = 1; i < n; ++i)
+  for(int i = 1; i <= n; ++i)
     if(n % i == 0)
       factors.push_back(i);
   return factors;
@@ -112,6 +118,22 @@ int number_factors(const unsigned long& n){
     count--;
   
   return count;
+}
+
+///////////////////////////////
+// DISTRIBUTIONS
+///////////////////////////////
+unsigned long choose(unsigned int n, unsigned int k){
+  if (k > n) return 0;
+  if (k * 2 > n) k = n - k;
+  if (k == 0) return 1;
+
+  int result = n;
+  for(int i = 2; i <= k; ++i){
+    result *= (n - i + 1);
+    result /= i;
+  }
+  return result;
 }
 
 ///////////////////////////////
