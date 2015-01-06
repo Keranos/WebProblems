@@ -2,6 +2,9 @@
 // the probability of pulling two blue discs (the rest are red) is 
 // exactly 1/2?
 
+// http://www.alpertron.com.ar/QUAD.HTM
+// Describes how to solve Diophantine equations in detail.
+
 #include <iostream>
 
 int main(){
