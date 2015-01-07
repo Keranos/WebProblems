@@ -1,4 +1,3 @@
-#include <iostream>
 #include <math.h>
 #include <vector>
 #include <string>
@@ -95,9 +94,10 @@ std::vector<int> get_proper_factors(const int& n){
 
 std::vector<int> get_factors(const int& n){
   std::vector<int> factors;
-  for(int i = 1; i <= n; ++i)
+  for(int i = 1; i <= (int)(n/2); ++i)
     if(n % i == 0)
       factors.push_back(i);
+  factors.push_back(n);
   return factors;
 }
 

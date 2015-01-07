@@ -3,6 +3,15 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+
+template<class T>
+void display(const T& begin, const T& end){
+  for(T i = begin; i != end; ++i)
+    std::cout << *i << " ";
+  std::cout << std::endl;
+}
+
 
 std::string convert_base(const unsigned int&, const unsigned int&);
 unsigned long concat(const unsigned int&, const unsigned int&);
