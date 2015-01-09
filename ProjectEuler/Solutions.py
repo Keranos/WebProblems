@@ -1,5 +1,6 @@
 from MathFunctions import *
-from itertools import takewhile
+from itertools import takewhile, combinations
+from math import factorial
 import datetime
 import Data
 
@@ -85,3 +86,16 @@ def Solution206():
 def match_206(n):
     s = str(n)
     return not all(int(s[x*2]) == x+1 for x in range(9))
+
+def Solution491():
+    arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    solutions = []
+    count = 0L
+    for p in combinations(arr, 10):
+        a = sum(p)
+        b = 90 - a
+        if (a - b) % 11 == 0 and sorted(p) not in solutions:
+            solutions.append(sorted(p))
+            count += len([x for x in p if x != 0]) * factorial(len(p) - 1) * factorial(len(p)) / 2**(2*(len(p) - len(set(p))))
+            
+    return count
