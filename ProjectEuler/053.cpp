@@ -1,3 +1,6 @@
+// How many, not necessarily distinct, value of C^n_r, for 1 <= n <= 100,
+// are greater than one-million?
+
 #include <iostream>
 
 bool choose(unsigned int n, unsigned int k){
