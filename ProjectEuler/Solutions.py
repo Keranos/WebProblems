@@ -77,6 +77,11 @@ def Solution48():
     """Sum of x**x from 1 to 1000"""
     return sum(x**x for x in range(1, 1001)) % 10000000000
 
+def Solution55():
+    """How many Lychrel numbers are there below 10000?"""
+    return sum(is_Lychrel(n) for n in range(10000))
+    
+
 def Solution56():
     """Maximum digital sum of a^b where a, b < 100."""
     m = 0

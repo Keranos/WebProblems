@@ -66,6 +66,12 @@ def ireduce(func, iterator, default=None):
 def is_palindrome(num):
     return str(num) == str(num)[::-1]
 
+def is_Lychrel(n):
+    for i in range(50):
+        n += reverse_number(n)
+        if is_palindrome(n): return 0
+    return 1
+
 def lcm(a, b):
     return (a*b) / gcd(a, b)
 
