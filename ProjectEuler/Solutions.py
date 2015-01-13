@@ -77,6 +77,16 @@ def Solution48():
     """Sum of x**x from 1 to 1000"""
     return sum(x**x for x in range(1, 1001)) % 10000000000
 
+def Solution56():
+    """Maximum digital sum of a^b where a, b < 100."""
+    m = 0
+    for a in xrange(1, 100):
+        for b in xrange(1, 100):
+            s = sum_digits(a**b)
+            if s> m:
+                m = s
+    return m
+
 def Solution206():
     """ Find the square with the property of 1_2_3_4_5_6_7_8_9_0"""
     n = 138902663
