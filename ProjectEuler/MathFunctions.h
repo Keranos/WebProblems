@@ -17,7 +17,9 @@ std::string convert_base(const unsigned int&, const unsigned int&);
 unsigned long concat(const unsigned int&, const unsigned int&);
 
 unsigned long gcd(const unsigned long&, const unsigned long&);
+unsigned long long gcd(const unsigned long long&, const unsigned long long&);
 unsigned long lcm(const unsigned long&, const unsigned long&);
+unsigned long long lcm(const unsigned long long&, const unsigned long long&);
 bool is_palindrome(const unsigned long&);
 bool is_pandigital(long);
 bool same_digits(const int&, const int&);

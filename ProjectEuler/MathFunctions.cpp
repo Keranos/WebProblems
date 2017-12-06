@@ -29,7 +29,15 @@ unsigned long gcd(const unsigned long& a, const unsigned long& b){
   return b == 0 ? a : gcd(b, a % b);
 }
 
+unsigned long long gcd(const unsigned long long& a, const unsigned long long& b){
+  return b == 0 ? a : gcd(b, a % b);
+}
+
 unsigned long lcm(const unsigned long& a, const unsigned long& b){
+  return (a * b) / gcd(a, b);
+}
+
+unsigned long long lcm(const unsigned long long& a, const unsigned long long& b){
   return (a * b) / gcd(a, b);
 }
 
