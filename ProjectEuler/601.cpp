@@ -4,12 +4,12 @@
 unsigned long long solve(unsigned long long limit, unsigned int streak){
   unsigned long long multiple = streak;
   for (unsigned long long i = 2; i < streak; i++)
-    multiple = lcm(multiple, i);
+    multiple = lcm<unsigned long long>(multiple, i);
 
   limit = limit - 2;
   auto atLeast = limit / multiple;
 
-  multiple = lcm(multiple, streak + 1ULL);
+  multiple = lcm<unsigned long long>(multiple, streak + 1ULL);
   auto tooMany = limit / multiple;
 
   return atLeast - tooMany;
