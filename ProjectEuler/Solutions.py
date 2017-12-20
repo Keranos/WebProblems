@@ -1,6 +1,7 @@
 from MathFunctions import *
 from itertools import takewhile, combinations
 from math import factorial
+from fractions import Fraction
 import datetime
 import Data
 
@@ -80,8 +81,17 @@ def Solution48():
 def Solution55():
     """How many Lychrel numbers are there below 10000?"""
     return sum(is_Lychrel(n) for n in range(10000))
-    
 
+def Solution57():
+	"""Write sqrt(2) as a series = 1 + 1/(2 + 1/(2 _ 1/(2 + ...)))"""
+	"""In the first thousand terms, how many have numerators with more digits than denominator"""
+	L, n, d, c = 1000, 3, 2, 0
+	for x in xrange(2, L+1):
+		n, d = n + 2*d, n + d
+		if int(log10(n)) > int(log10(d)): c += 1
+		
+	print c
+	
 def Solution56():
     """Maximum digital sum of a^b where a, b < 100."""
     m = 0
