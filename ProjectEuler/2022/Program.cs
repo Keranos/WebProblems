@@ -6,7 +6,8 @@ namespace SolveProblems
     {
         static void Main(string[] args)
         {
-            PokerHands.PokerHand.Solve();
+            ArithmeticExpressions.Solve();
+            PokerHand.Solve();
         }
     }
 }

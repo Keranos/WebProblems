@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace SolveProblems.PokerHands
+// Problem 54 - Poker Hands
+
+namespace SolveProblems
 {
     public sealed class PokerHand
     {
@@ -22,6 +24,8 @@ namespace SolveProblems.PokerHands
                 var winner = CompareHands(hands.Item1, hands.Item2);
                 if (winner == Winner.Left) count++;
             }
+
+            Console.WriteLine($"The number of times player one wins is {count}");
         }
 
         private static Tuple<HashSet<Card>, HashSet<Card>> ParseHands(string line)

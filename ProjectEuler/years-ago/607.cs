@@ -28,11 +28,9 @@ namespace TrunkScratchPad
         // how many days does it take to walk from the first to the last point, considering "speed" of the surfaces
         public static double Duration(Point[] points)
         {
-            // leagues travelled per day between point[i] and point[i+1]
             var speed = new[] { 10.0, 9, 8, 7, 6, 5, 10 };
 
             double result = 0;
-            // for each surface: determine length and divide by speed
             for (var i = 0; i < speed.Length; i++)
             {
                 var way = points[i].Distance(points[i + 1]);
@@ -62,8 +60,6 @@ namespace TrunkScratchPad
             if (Duration(points) >= oldDuration)
                 points[id].Y -= delta;
         }
-
-        //public Point[] points { get; set; }
 
         public static void Run()
         {
